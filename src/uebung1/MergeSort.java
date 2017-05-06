@@ -3,6 +3,7 @@ package uebung1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import uebung1.FileIntArray;
 
 /*********************************************************************
  * Erste praktische Übung von Algorithmen SS17 - Merge Sort
@@ -17,15 +18,16 @@ public class MergeSort {
 	private int number;
 
 	public static void main(String[] args) {
-		int[] zahlenfolge = { 5, 6, 1, 0, 2, 3, 4 };	// Selbst gewählte Zahlen
-		int[] zahlenfolge2 = readArray("src/uebung1/beispiele/Rand20_2");		// Aus einer Datei ausgelesene Zahlen
+//		int[] zahlenfolge = { 5, 6, 1, 0, 2, 3, 4 };	// Selbst gewählte Zahlen
+//		int[] zahlenfolge = readArray("src/uebung1/beispiele/Rand500_1");		// Aus einer Datei ausgelesene Zahlen
 		
 		System.out.println("			    --Merge Sort--");
 		System.out.println("***************************************************************************");
 		
 		MergeSort mSort = new MergeSort();
-		mSort.sort(zahlenfolge);
-		mSort.sort(zahlenfolge2);
+//		mSort.sort(zahlenfolge);
+//		mSort.sort(zahlenfolge2);
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand20_2"));
 	}
 
 	/*********************************************************************
