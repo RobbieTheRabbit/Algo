@@ -111,18 +111,18 @@ public class MergeSort {
 	public static int[] readArray(String file){
    	 int counter = 0;
    	 try {
-			Scanner scan1 = new Scanner(new File(file));
-			while(scan1.hasNextLine()){
+			Scanner scanLaenge = new Scanner(new File(file));
+			while(scanLaenge.hasNextLine()){
 				counter++;
-				scan1.nextLine();
+				scanLaenge.nextLine();
 			}
-			int[] anzahlZeichen = new int[counter];
+			int[] elemente = new int[counter];
 			
-			Scanner scan2 = new Scanner(new File(file));
+			Scanner scanContent = new Scanner(new File(file));
 			for (int i =0; i < counter; i++){
-				anzahlZeichen[i] = scan2.nextInt();
+				elemente[i] = scanContent.nextInt();
 			}
-			return anzahlZeichen;
+			return elemente;
 					
 					
 		} catch (FileNotFoundException e) {
