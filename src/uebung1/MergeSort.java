@@ -2,6 +2,7 @@ package uebung1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.Scanner;
 import uebung1.FileIntArray;
 
@@ -20,15 +21,22 @@ public class MergeSort {
 	public static void main(String[] args) {
 //		int[] zahlenfolge = { 5, 6, 1, 0, 2, 3, 4 };	// Selbst gewählte Zahlen
 //		int[] zahlenfolge = readArray("src/uebung1/beispiele/Rand500_1");		// Aus einer Datei ausgelesene Zahlen
-		
+
+
 		System.out.println("			    --Merge Sort--");
 		System.out.println("***************************************************************************");
-		
+
+		long start = new Date().getTime();
+
 		MergeSort mSort = new MergeSort();
 //		mSort.sort(zahlenfolge);
 //		mSort.sort(zahlenfolge2);
-		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand20_2"));
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort100000_1"));
+
+		long runningTime = new Date().getTime() - start;
+		System.out.println(runningTime + " Millisekunden");
 	}
+
 
 	/*********************************************************************
 	 * Kunstruktor für die Mergesort Methode, der das unsortierte 
@@ -40,7 +48,7 @@ public class MergeSort {
 		this.sortArray = values;
 		this.number = values.length;
 		this.helpArray = new int[number];
-		
+
 		System.out.print("Unsortiert:	");
 		for (int i = 0; i <= number - 1; i++) {
 			System.out.print(sortArray[i] + " ");
