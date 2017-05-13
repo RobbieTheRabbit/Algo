@@ -27,18 +27,18 @@ public class MergeSort {
 		System.out.println("			    --Merge Sort--");
 		System.out.println("***************************************************************************");
 
-		long start = new Date().getTime();
+		
 
 		MergeSort mSort = new MergeSort();
 //		mSort.sort(zahlenfolge);
 //		mSort.sort(zahlenfolge2);
-		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort100_1"));
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand100_1"));
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand200_1"));
 
-		System.out.println("Countzähler:" + count);
+		
 
 
-		long runningTime = new Date().getTime() - start;
-		System.out.println(runningTime + " Millisekunden");
+		
 	}
 
 
@@ -49,11 +49,13 @@ public class MergeSort {
 	 * @param values - Das übergebene, unsortierte, Array 
 	 *********************************************************************/
 	private void sort(int[] values) {
+		this.count = 0;
 		this.sortArray = values;
 		this.number = values.length;
 		this.helpArray = new int[number];
+		long start = new Date().getTime();
 
-		System.out.print("Unsortiert:	");
+		System.out.print("Eingabe:	");
 		for (int i = 0; i <= number - 1; i++) {
 			System.out.print(sortArray[i] + " ");
 			count ++;
@@ -66,7 +68,10 @@ public class MergeSort {
 			System.out.print(sortArray[i] + " ");
 			count ++;
 		}
+		long runningTime = new Date().getTime() - start;
 		System.out.println("");
+		System.out.println("Durchläufe: :" + count);
+		System.out.println("Benötigte Zeit: "+ runningTime + " Millisekunden");
 		System.out.println("---------------------------------------------------------------------------");
 	}
 
