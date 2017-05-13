@@ -17,6 +17,7 @@ public class MergeSort {
 	private int[] sortArray;
 	private int[] helpArray;
 	private int number;
+	public static int count = 0;
 
 	public static void main(String[] args) {
 //		int[] zahlenfolge = { 5, 6, 1, 0, 2, 3, 4 };	// Selbst gewählte Zahlen
@@ -31,7 +32,10 @@ public class MergeSort {
 		MergeSort mSort = new MergeSort();
 //		mSort.sort(zahlenfolge);
 //		mSort.sort(zahlenfolge2);
-		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort100000_1"));
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort100_1"));
+
+		System.out.println("Countzähler:" + count);
+
 
 		long runningTime = new Date().getTime() - start;
 		System.out.println(runningTime + " Millisekunden");
@@ -52,6 +56,7 @@ public class MergeSort {
 		System.out.print("Unsortiert:	");
 		for (int i = 0; i <= number - 1; i++) {
 			System.out.print(sortArray[i] + " ");
+			count ++;
 		}
 		System.out.println("");
 		mergeSort(0, number - 1);
@@ -59,6 +64,7 @@ public class MergeSort {
 		System.out.print("Sortiert:	");
 		for (int i = 0; i <= number - 1; i++) {
 			System.out.print(sortArray[i] + " ");
+			count ++;
 		}
 		System.out.println("");
 		System.out.println("---------------------------------------------------------------------------");
@@ -77,6 +83,7 @@ public class MergeSort {
 			mergeSort(low, mid);
 			mergeSort(mid + 1, high);
 			merge(low, mid, high);
+			count ++;
 		}
 	}
 
@@ -91,6 +98,7 @@ public class MergeSort {
 	private void merge(int low, int mid, int high) {
 		for (int i = low; i <= high; i++) {
 			helpArray[i] = sortArray[i];
+			count ++;
 		}
 		int i = low;
 		int j = mid + 1;
@@ -104,11 +112,13 @@ public class MergeSort {
 				j++;
 			}
 			k++;
+			count ++;
 		}
 		while (i <= mid) {
 			sortArray[k] = helpArray[i];
 			k++;
 			i++;
+			count ++;
 		}
 	}
 	
