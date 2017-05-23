@@ -21,8 +21,7 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 //		 int[] zahlenfolge = { 5, 9, 1, 4, 6, 7, 3, 2, 8 }; // Selbst gewählte Zahlen
-		// int[] zahlenfolge2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // Selbst gewählte Zahlen
-		// int[] zahlenfolge = readArray("src/uebung1/beispiele/Rand500_1"); // Aus einer Datei ausgelesene Zahlen
+//		 int[] zahlenfolge = readArray("src/uebung1/beispiele/Rand500_1"); // Aus einer Datei ausgelesene Zahlen
 
 		System.out.println("			    --Merge Sort--");
 		System.out.println("***************************************************************************");
@@ -30,14 +29,14 @@ public class MergeSort {
 		MergeSort mSort = new MergeSort();
 		
 //		mSort.sort(zahlenfolge);
-		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand1000_1"));
-//		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort1000_1"));
+		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Rand100_1"));
+//		mSort.sort(FileIntArray.FileToIntArray("src/uebung1/beispiele/Sort100_1"));
 
 	}
 
 	/*********************************************************************
-	 * Kunstruktor für die Mergesort Methode, der das unsortierte und sortierte
-	 * Array in der Konsole ausgibt
+	 * Kunstruktor für die Mergesort Funktion, der das unsortierte und sortierte
+	 * Array samt Durchgänge und Zeit in Milisekunden in der Konsole ausgibt
 	 * 
 	 * @param values - Das übergebene, unsortierte, Array
 	 *********************************************************************/
@@ -68,11 +67,11 @@ public class MergeSort {
 	}
 
 	/*********************************************************************
-	 * Funktion teilt das Array anhand der mitte in mehrere Teilarrays, bis
-	 * jedes Element einzeln steht und fügt sie dann wieder sortiert zusammen
-	 * 
+	 * Ein rekursiver Algorithmus, dass ein unsortierte int-Array in 
+	 * Teilarrays zerlegt und anschliesend sortiert.
+	 *  
 	 * @param low - der kleinste Index im Array
-	 * @param high - der größte Index im Array
+	 * @param high - der größte Index im Array -1
 	 *********************************************************************/
 	private void mergeSort(int low, int high) {
 		if (low < high) {
@@ -84,12 +83,11 @@ public class MergeSort {
 	}
 
 	/*********************************************************************
-	 * Funktion um die einzelnen Elemente der Arrays miteiner vergleicht und
-	 * wieder in einem sortierten Array zusammenzufügt
+	 * Funktion mischt die Elemente vom Array vom kleinsten zum größten Element 
 	 * 
-	 * @param low - der kleinste Index im Array
-	 * @param mid - die Mitte der Arrays
-	 * @param high - der größte Index im Array
+	 * @param low - Indexbereich vom linken Teilarray, der bis zum mid wert geht
+	 * @param mid - Vergleichswert, ab wann das linke Teilarray endet bzw das rechte (mid+1) beginnt
+	 * @param high - Vergleichswert, ab wann das Ende vom rechten Teilarray erreicht worden ist
 	 *********************************************************************/
 	private void merge(int low, int mid, int high) {
 		for (int i = low; i <= high; i++) {
@@ -119,8 +117,8 @@ public class MergeSort {
 	}
 
 	/*********************************************************************
-	 * Funktion liest eine Datei mit Werten ein und speichert sie in einem
-	 * int-Array
+	 * Funktion liest eine Datei mit int Werten ein und speichert sie 
+	 * in einem int-Array
 	 * 
 	 * @param file - Die einzulesene Datei mit den Werten für das Array
 	 * @return Die Elemente aus der Datei in einem int-Array
