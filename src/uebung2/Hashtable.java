@@ -42,28 +42,49 @@ public class Hashtable implements Map {
 
 	}
 
-	/**
-	 * @param key
-	 * @param value
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see uebung2.Map#put(int, java.lang.String)
 	 */
-	private void put(int key, String value) {
+	@Override
+	public Object put(int key, String value) {
 		int hash = key & arraySize;
 		while (table[hash] != null) {
 			table[hash] = new LinkedList();
 
 		}
+		return null;
 	}
 
-	/**
-	 * @param args
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see uebung2.Map#get(int)
 	 */
+	@Override
+	public Object get(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see uebung2.Map#remove(int)
+	 */
+	@Override
+	public Object remove(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public static void main(String[] args) {
 
 		Hashtable hash = new Hashtable(11);
 
-		hash.put(01, "Sven");
+		hash.put(1, "Sven");
 		System.out.println(hash.arraySize);
 
 	}
-
 }
