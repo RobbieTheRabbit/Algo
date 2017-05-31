@@ -70,8 +70,8 @@ public class MergeSort {
 	 * Ein rekursiver Algorithmus, dass ein unsortierte int-Array in 
 	 * Teilarrays zerlegt und anschliesend sortiert.
 	 *  
-	 * @param low - der kleinste Index im Array
-	 * @param high - der größte Index im Array -1
+	 * @param low - der kleinste Index des übergebenden Array
+	 * @param high - der größte Index des übergebenden Array
 	 *********************************************************************/
 	private void mergeSort(int low, int high) {
 		if (low < high) {
