@@ -6,13 +6,12 @@ public interface Map<K, V> {
 	 *
 	 * Hinweis: zum Vergleich der Schluessel wird die equals-Methode verwendet
 	 */
+	
 	/**
 	 * fuegt ein Schluessel-Wert-Paar in die Map ein
 	 * 
-	 * @param key
-	 *            der Schluessel
-	 * @param value
-	 *            der Wert
+	 * @param key der Schluessel
+	 * @param value der Wert
 	 * @return falls es schon einen Wert mit Schluessel key in der Map gab, wird
 	 *         der alte Wert entfernt und zurueckgegeben; sonst wird null
 	 *         zurueckgegeben
@@ -22,8 +21,7 @@ public interface Map<K, V> {
 	/**
 	 * bestimmt den Wert zu einem Schluessel in der Map
 	 * 
-	 * @param key
-	 *            der Schluessel
+	 * @param key der Schluessel
 	 * @return den Wert zum Schluessel key, falls ein entsprechendes
 	 *         Schluessel-Wert-Paar vorhanden ist; null sonst
 	 */
@@ -32,8 +30,7 @@ public interface Map<K, V> {
 	/**
 	 * entfernt ein Schluessel-Wert-Paar aus der Map
 	 * 
-	 * @param key
-	 *            der Schluessel
+	 * @param key der Schluessel
 	 * @return der Wert zu dem Schluessel, falls ein entsprechendes
 	 *         Schluessel-Wert-Paar vorhanden ist; null sonst
 	 */

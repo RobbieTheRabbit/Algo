@@ -3,75 +3,87 @@ package uebung2;
 import java.util.*;
 
 /*********************************************************************
- * Zweite praktische Übung von Algorithmen SS17 Hashtabelle
+ * Zweite praktische Übung von Algorithmen SS17
+ * Die Klasse erzeugt ein Hashtable aus LinkedList Arrays.
+ * Als Kollisionsbehandlung: Verkettung Überläufer
  * 
  * @author Sven Böhrnsen
- * @author Oliver Tili
- * 
- * @param <K> Schlüssel
- * @param <V> Wert
+ * @author Oliver Tili 
  *********************************************************************/
 public class Hashtable<K, V> implements Map<K, V> {
 
+	private LinkedList<Pair<K, V>>[] table;
+
+	/*********************************************************************
+	 * Konstruktor für die Hashtable
+	 * 
+	 * @param length Länge des zu erzeugenden Arrays
+	 *********************************************************************/
+	public Hashtable(int length) {
+		table = new LinkedList[length];
+
+		for (int i = 0; i < length; i++) {
+			table[i] = new LinkedList<Pair<K, V>>();
+		}
+	}
+
+	/*********************************************************************
+	 * Funktion für die Berechnung der Indexstelle
+	 * 
+	 * @param key Schlüssel
+	 * @return Berechnete Indexstelle
+	 *********************************************************************/
+	public int hashFunction(K key) {
+		return key.hashCode() % table.length;
+	}
 
 	class Pair<K, V> {
 
 		private K key;
 		private V value;
 
-		/**
+		/*********************************************************************
 		 * @param key Der Schlüssel
 		 * @param value Der Wert
-		 */
+		 *********************************************************************/
 		public Pair(K key, V value) {
 			this.key = key;
 			this.value = value;
 		}
 
-		/**
+		/*********************************************************************
 		 * @return den Schlüssel
-		 */
+		 *********************************************************************/
 		public K getKey() {
 			return key;
 		}
 
-		/**
+		/*********************************************************************
 		 * @param key setzt den Schlüssel
-		 */
+		 *********************************************************************/
 		public void setKey(K key) {
 			this.key = key;
 		}
 
-		/**
+		/*********************************************************************
 		 * @return den Wert
-		 */
+		 *********************************************************************/
 		public V getValue() {
 			return value;
 		}
 
-		/**
+		/*********************************************************************
 		 * @param value setzt den Wert
-		 */
+		 *********************************************************************/
 		public void setValue(V value) {
 			this.value = value;
 		}
 
-		
+		/*********************************************************************
+		 * @return Schlüssel und Wert aus dem Array
+		 *********************************************************************/
 		public String toString() {
 			return "key: " + this.key.toString() + " - value: " + this.value.toString();
-		}
-	}
-
-	private LinkedList<Pair<K, V>>[] table;
-
-	/** Konstruktor für die Hashtable
-	 * @param length Länge des zu erzeugenen Arrays
-	 */
-	public Hashtable(int length) {
-		table = new LinkedList[length];
-
-		for (int i = 0; i < length; i++) {
-			table[i] = new LinkedList<Pair<K, V>>();
 		}
 	}
 
@@ -84,7 +96,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 		} else {
 			for (int i = 0; i < table[hash].size(); i++) {
 				Pair<K, V> create = table[hash].get(i);
-				if (create.getKey().equals(key)) {
+				if (create.getKey().equals(key)) { //	Wenn Der Schlüssel schon im Array existiert
 					V update = create.getValue();
 					create.setValue(value);
 					return update;
@@ -123,19 +135,11 @@ public class Hashtable<K, V> implements Map<K, V> {
 		return null;
 	}
 
-	/** Funktion für die Berechnung der Indexstelle
-	 * @param key Schlüssel
-	 * @return Berechnete Indexstelle
-	 */
-	public int hashFunction(K key) {
-		return key.hashCode() % table.length;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");
 		System.out.println("			    --Hashtable--");
-		System.out.println("***************************************************************************");
+		System.out.println("---------------------------------------------------------------------------");
 		for (int i = 0; i < table.length; i++) {
 			sb.append("[ " + i + " ]");
 			for (int y = 0; y < table[i].size(); y++) {
@@ -146,6 +150,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 			sb.append("\n");
 		}
 		return sb.toString();
+		
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
