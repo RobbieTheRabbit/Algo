@@ -83,7 +83,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 		 * @return Schlüssel und Wert aus dem Array
 		 *********************************************************************/
 		public String toString() {
-			return "key: " + this.key.toString() + " - value: " + this.value.toString();
+			return "[" + this.key.toString() + ": " + "\"" + this.value.toString() + "\"" + "]";
 		}
 	}
 
@@ -145,7 +145,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 			for (int y = 0; y < table[i].size(); y++) {
 				sb.append(" ---> ");
 				Pair<K, V> output = table[i].get(y);
-				sb.append("(" + output.toString() + ")");
+				sb.append(output.toString());
 			}
 			sb.append("\n");
 		}
