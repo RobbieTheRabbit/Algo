@@ -1,6 +1,6 @@
 package uebung2;
 
-import java.util.*;
+import java.util.LinkedList;
 
 /*********************************************************************
  * Zweite praktische uebung von Algorithmen SS17
@@ -142,7 +142,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 		for (int i = 0; i < table.length; i++) {
 			sb.append("[ " + i + " ]");
 			for (int y = 0; y < table[i].size(); y++) {
-				sb.append("--->");
+				sb.append(" ---> ");
 				Pair<K, V> output = table[i].get(y);
 				sb.append(output.toString());
 			}
@@ -165,11 +165,7 @@ public class Hashtable<K, V> implements Map<K, V> {
 		hash.put(17, 17); // 17 mod 11 = 6
 		hash.put(78, 78); // 78 mod 11 = 1
 
-		hash.put(87, "Sven"); // 87 mod 11 = 10
-
 		System.out.println(hash);
-		hash.get(87);
-		// hash.remove(34);
-		// System.out.println(hash);
+
 	}
 }
